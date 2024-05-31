@@ -1,0 +1,68 @@
+﻿@implements IDisposable
+@inject AuthenticationStateProvider authStateProvider
+@inject NavigationManager NavigationManager
+@inject ProtectedSessionStorage ProtectedSessionStore
+@using TinaKingWebApp.Authentication
+
+<MudAppBar Fixed="true" Style="background-color:#6c757d;" Dense="true">
+   
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div>
+            <h5 style="margin:auto;">
+                <a href="/Master" style="color: white; text-decoration: none;">
+                    <img src="/FinalLogo.png" alt="Logo" style="height:35px;">
+                    TinaKing Integrity
+                </a>
+            </h5>
+        </div>
+
+        <div>
+
+            <AuthorizeView Roles="Admin, Manager, Reviewer">
+                <Authorized>
+                    <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight" @onclick="EventClear">
+                        <ActivatorContent>
+                            <MudBadge Content="@(CountTotal)" Color="Color.Primary" Overlap="true" Class="mx-6 my-4">
+                                <MudIcon Icon="@Icons.Material.Filled.Email" Color="Color.Default" />
+                            </MudBadge>
+                        </ActivatorContent>
+                        <ChildContent>
+                            <MudMenuItem>Finished(@(CountFinish))</MudMenuItem>
+                            <MudMenuItem>Approved(@(CountApprove))</MudMenuItem>
+                            <MudMenuItem>Reviewed(@(CountReview))</MudMenuItem>
+                            <MudMenuItem>New Package(@(CountPackage))</MudMenuItem>
+                        </ChildContent>
+                    </MudMenu>
+                </Authorized>
+            </AuthorizeView>
+
+            <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                <ActivatorContent>
+                    <MudAvatar Color="Color.Primary" Size="Size.Medium">@(UserName.Substring(0, 1))</MudAvatar>
+                </ActivatorContent>
+                <ChildContent>
+                    <div style="padding: 8px; text-align: center;">
+                        <MudText Typo="Typo.h6" Style="margin-bottom: 12px;">@(UserName)</MudText>
+                        <MudDivider Class="mb-2" />
+                        <MudMenuItem Icon="@Icons.Material.Outlined.Person"  OnClick="Profile">Profile</MudMenuItem>
+                        <MudMenuItem Icon="@Icons.Material.Outlined.Password" OnClick="ChangePwd">Change Password</MudMenuItem>
+                        <MudMenuItem  Icon="@Icons.Material.Outlined.Logout" OnClick="Logout">Sign Out</MudMenuItem>
+                    </div>
+                </ChildContent>
+            </MudMenu>
+
+            <AuthorizeView>
+                <NotAuthorized>
+                    <MudButton Href="/" Color="Color.Inherit">Log In</MudButton>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
+    </div>
+
+</MudAppBar>
+
+<style>
+    .mud-menu{
+        vertical-align:middle
+    }
+</style>

@@ -1,0 +1,118 @@
+@attribute [Authorize(Roles = "Admin,Client")]
+@page "/PreviousPackages/{newPackID?}"
+@using TinaKingSystem.ViewModels;
+
+<NavMenu></NavMenu>
+<body style="background-color:#0a253b; height:100vh;">
+    <main>
+        <MudPaper Elevation="3" Class="my-3 p-2" Style="background-color:#F5F5F5; border-radius: 8px;">
+            <MudGrid Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                <MudItem xs="12" sm="6">
+                    <MudText Typo="Typo.h4" Style="color:#0a253b; font-weight:bold;">Pending Packages</MudText>
+                </MudItem>
+                <MudItem xs="12" sm="6" Style="text-align: right;">
+                    <MudTooltip Text="Add a new package" Placement="MudBlazor.Placement.End">
+                        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Primary" OnClick="GoToFinishedPackage">
+                            Finished Packages
+                        </MudButton>
+                        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Primary" OnClick="GoToNewPackage" StartIcon="@Icons.Filled.Add">
+                            New Package
+                        </MudButton>
+                    </MudTooltip>
+                </MudItem>
+            </MudGrid>
+        </MudPaper>
+
+        @if (packages != null && packages.Any())
+        {
+            <MudTable Items="@packages" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<PackageView, bool>(FilterFunc)">
+                <ToolBarContent>
+                    <MudTextField @bind-Value="searchString" Placeholder="Search Package No. or Document Name" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"></MudTextField>
+                    <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Primary" OnClick="Refresh">Clear</MudButton>
+                </ToolBarContent>
+                <HeaderContent>
+                    <MudTh Style="overflow-wrap:break-word;max-width:100px"><MudTableSortLabel SortBy="new Func<PackageView, object>(x => x.PackageNumber)">Package Number</MudTableSortLabel></MudTh>
+                    <MudTh Style="overflow-wrap:break-word;max-width:80px"><MudTableSortLabel SortBy="new Func<PackageView, object>(x => x.Priority)">Priority</MudTableSortLabel></MudTh>
+                    <MudTh Style="overflow-wrap:break-word;max-width:130px"><MudTableSortLabel InitialDirection="SortDirection.Descending" SortBy="new Func<PackageView, object>(x => x.DateSubmitted)">Date Submitted</MudTableSortLabel></MudTh>
+                    <MudTh Style="overflow-wrap:break-word;max-width:140px"><MudTableSortLabel SortBy="new Func<PackageView, object>(x => x.Deadline)">Deadline</MudTableSortLabel></MudTh>
+                    <MudTh Style="overflow-wrap:break-word;max-width:70px">Type</MudTh>
+                    <MudTh Style="overflow-wrap:break-word;max-width:120px">Status</MudTh>
+                    <MudTh Style="overflow-wrap:break-word;max-width:250px">Document</MudTh>
+					<MudTh Style="overflow-wrap:break-word;max-width:130px">Date Completed</MudTh>
+                    <MudTh Style="overflow-wrap:break-word;min-width:150px">Actions</MudTh>
+                </HeaderContent>
+                <RowTemplate Context="package">
+                    <MudTd DataLabel="Package Number">@package.PackageNumber</MudTd>
+                        <MudTd DataLabel="Priority">
+                            @if (packageEditStates[package.PackageID])
+                        {
+                            <input type="text" @bind="package.Priority" />
+                        }
+                        else
+                        {
+                            @package.Priority
+                        }
+                    </MudTd>
+
+                    <MudTd DataLabel="Date Submitted">@package.DateSubmitted.ToString("dd MMM ")</MudTd>
+                     <MudTd DataLabel="Deadline">
+                        @if (packageEditStates[package.PackageID])
+                        {
+                        <InputDate @bind-Value="package.Deadline" />
+                        }
+                        else
+                        {
+                            @package.Deadline.ToString("dd MMM yyyy")
+
+                        }
+                    </MudTd>
+
+                    <MudTd DataLabel="Type">@package.TypeOfRequest</MudTd>
+                    <MudTd DataLabel="Status">
+                        @if (@package.ApproveState == "A") {
+                            <a>Finished</a>
+                        } else if (@package.ApproveState == "M") {
+                            <a>Approved</a>
+                        } else if (@package.ApproveState == "V") {
+                            <a>Reviewed</a>
+                        } else {
+                            <a>No Review</a>
+                        }
+                    </MudTd>
+                    <MudTd DataLabel="Documents">
+                    @if (package.DocumentNames != null){
+                        @for (int i = 0 ; i < package.DocumentNames.Count ; i++){
+                        <a href="@package.DocumentUrls[i]" color="blue">@package.DocumentNames[i]</a><br/>
+                        }
+                    }
+                    </MudTd>
+                    @if (package.EndDate.Year < 2000){
+                    <MudTd DataLabel="Date Completed">-</MudTd>
+                    }else{
+                    <MudTd DataLabel="Date Completed">@package.EndDate.ToString("dd MMM ")</MudTd>
+                    }
+                    <MudTd DataLabel="Actions">
+                    @if (packageEditStates[package.PackageID])
+                    {
+                        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Primary" OnClick="@(() => SaveChanges(package))">Save</MudButton>
+                    }
+                    else
+                    {
+                        @if (package.ApproveState != "A"){
+                        <MudFab Color="Color.Primary" Size="Size.Medium" StartIcon="@Icons.Material.Filled.Edit" @onclick="@(() => OpenEditDialog(package))" />
+                        }
+                    }
+                    </MudTd>
+                </RowTemplate>
+                        <PagerContent>
+                            <MudTablePager />
+                        </PagerContent>
+                </MudTable>
+        }
+        else
+        {
+           <MudText Typo="Typo.h6" Color="Color.Warning">No Pending Packages under progress...</MudText>
+
+        }
+    </main>
+</body>

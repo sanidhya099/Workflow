@@ -1,0 +1,22 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=tcp:tinakingsqldatabase.database.windows.net,1433;Initial Catalog=WFS_2590;Persist Security Info=False;User ID=tinaking;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;",
+    "WFS_2590": "Server=tcp:tinakingsqldatabase.database.windows.net,1433;Initial Catalog=WFS_2590;Persist Security Info=False;User ID=tinaking;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;",
+    "AzureConnectionString": "DefaultEndpointsProtocol=https;AccountName=tinakingwebapp;AccountKey=nv/Jgs3+WKOnjE5ORTthUw9umu9QchLj7T03JIr7Lq+h8OzFyM/AalE/Wov0+l8nfmhoMf7ph0ME+AStRwWWvg==;EndpointSuffix=core.windows.net"
+  },
+  "EmailConfiguration": {
+    "From": "TinakingResetpwd@gmail.com",
+    "SmtpServer": "smtp.gmail.com",
+    "Port": 465,
+    "Username": "TinakingResetpwd@gmail.com",
+    "Password": "njof xgtm ljvr jngy"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "DetailedErrors": true
+}

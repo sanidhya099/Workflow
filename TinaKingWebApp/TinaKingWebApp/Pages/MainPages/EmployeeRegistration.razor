@@ -1,0 +1,125 @@
+﻿@* @attribute [Authorize(Roles = "Admin , Manager")] *@
+@page "/EmployeeRegistration/{EID?}"
+
+<MudLayout >
+    <NavMenu></NavMenu>
+    <MainMenu></MainMenu>
+    <MudMainContent Style="background-color:#F5F5F5; height:100vh;">
+
+        <MudContainer  MaxWidth="MaxWidth.ExtraLarge"  >
+        <main class="container shadow rounded-lg p-4" style="background-color:#0a253b;">
+        <div class="row">
+            <section class="col-md-12">
+                <h2 class="text-center" style="color:white;">Employee Registration</h2>
+                <br />
+                <EditForm Model="EmployeeView" OnValidSubmit="HandleSubmit">
+                    <DataAnnotationsValidator />
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">First Name<span class="required-field">∗</span></label>
+                            <InputText style="background-color:#DCDCDC;" id="firstName" class="form-control" @bind-Value="EmployeeView.FirstName" />
+                            <ValidationMessage For="@(() => EmployeeView.FirstName)" style="font-size:10px;" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last Name</label>
+                                    <InputText style="background-color:#DCDCDC;" id=" lastName" class="form-control" @bind-Value="EmployeeView.LastName" />
+                            <ValidationMessage For="@(() => EmployeeView.LastName)" style="font-size:10px; color:white;" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="UserName">User Name<span class="required-field">∗</span></label>
+                                    <InputText style="background-color:#DCDCDC;" id=" firstName" class="form-control" @bind-Value="EmployeeView.UserName" />
+                            <ValidationMessage For="@(() => EmployeeView.UserName)" style="font-size:10px;" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email<span class="required-field">∗</span></label>
+                                    <InputText style="background-color:#DCDCDC;" id=" email" class="form-control" @bind-Value="EmployeeView.Email" />
+                            <ValidationMessage For="@(() => EmployeeView.Email)" style="font-size:10px;" />
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="role">Role<span class="required-field">∗</span></label>
+                            <InputSelect id="role" class="form-control" @bind-Value="EmployeeView.Role">
+                                <option value="">Select Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Reviewer">Reviewer</option>
+                                <option value="Manager">Manager</option>
+                            </InputSelect>
+                            <ValidationMessage For="@(() => EmployeeView.Role)" style="font-size:10px;" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Phone<span class="required-field">∗</span></label>
+                                    <InputText style="background-color:#DCDCDC;" id=" phone" class="form-control" @bind-Value="EmployeeView.Phone" />
+                            <ValidationMessage For="@(() => EmployeeView.Phone)" style="font-size:10px;" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="city">City</label>
+                                    <InputText style="background-color:#DCDCDC;" id=" city" class="form-control" @bind-Value="EmployeeView.city" />
+                            <ValidationMessage For="@(() => EmployeeView.city)" style="font-size:10px;" />
+
+                        </div>
+        
+                        <div class="form-group col-md-6">
+                            <label for="province">Province</label>
+                            <InputSelect id="province" class="form-control" @bind-Value="EmployeeView.province">
+                                <option value="">Select Province</option>
+                                <option value="AB">Alberta</option>
+                                <option value="BC">British Columbia</option>
+                                <option value="MB">Manitoba</option>
+                                <option value="NB">New Brunswick</option>
+                                <option value="NL">Newfoundland and Labrador</option>
+                                <option value="NS">Nova Scotia</option>
+                                <option value="ON">Ontario</option>
+                                <option value="PE">Prince Edward Island</option>
+                                <option value="QC">Quebec</option>
+                                <option value="SK">Saskatchewan</option>
+                                <option value="NT">Northwest Territories</option>
+                                <option value="NU">Nunavut</option>
+                                <option value="YT">Yukon</option>
+                            </InputSelect>
+                            <ValidationMessage For="@(() => EmployeeView.province)" style="font-size:10px;"  />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="PostalCode">Postal Code</label>
+                                    <InputText style="background-color:#DCDCDC;" id="Postalcode" class="form-control" @bind-Value="EmployeeView.PostalCode" />
+                            <ValidationMessage For="@(() => EmployeeView.PostalCode)" style="font-size:10px;" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Password <span class="required-field">∗</span></label>
+                                    <InputText style="background-color:#DCDCDC;" id=" password" class="form-control" @bind-Value="EmployeeView.Password" type="password" />
+                            <ValidationMessage For="@(() => EmployeeView.Password)" style="font-size:10px;"/>
+                        </div>
+                    </div>
+                     <div style="display: flex; justify-content: space-between;">
+                        <MudButton class="mt-4" Variant="MudBlazor.Variant.Filled" Color="Color.Primary" @onclick="ClearForm">Clear</MudButton>
+                                @* <MudButton class="mt-4" Variant="MudBlazor.Variant.Filled" Color="Color.Primary" @onclick="HandleSubmit">Save</MudButton> *@
+                        <button type="submit"  class="mt-4 btn btn-primary">SAVE</button> 
+                    </div>
+                </EditForm>
+            </section>
+        </div>
+    </main>
+    <footer>
+        @if (RegistrationResult != null)
+        {
+            <blockquote class="mt-3 alert @RegistrationResultCssClass">
+                @RegistrationResult
+            </blockquote>
+        }
+    </footer>
+</MudContainer>
+</MudMainContent>
+</MudLayout>
+
+
+

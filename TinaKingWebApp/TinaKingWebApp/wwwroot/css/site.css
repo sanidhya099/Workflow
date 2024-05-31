@@ -1,0 +1,37 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+
+h1:focus {
+    outline: none;
+}
+.full-height {
+    min-height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.full-height-nav {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h3, h4 {
+    font-family:'Arial Rounded MT';
+}
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+

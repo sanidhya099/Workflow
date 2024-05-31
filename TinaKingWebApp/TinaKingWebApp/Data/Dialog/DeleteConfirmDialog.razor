@@ -1,0 +1,9 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudText>Are you sure you want to delete ?</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Error" OnClick="@(() => ConfirmDelete(true))">Yes</MudButton>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Primary" OnClick="@(() => ConfirmDelete(false))">No</MudButton>
+    </DialogActions>
+</MudDialog>

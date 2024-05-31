@@ -1,0 +1,93 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "WFS_2590Context",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "DAL",
+   "OutputPath": "Entities",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "TinaKingSystem",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[AdditionalDetails]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BaseMetal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Client]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DrawingRequest]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Employee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Filler]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FillerMetal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Package]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Position]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PreheatAndPostWeld]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[WeldingProcess]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[WeldingSpecifications]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[WPS]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "desktop-i9lbvrl\\mssqlserver01.WFS.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
