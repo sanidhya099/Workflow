@@ -1,0 +1,8 @@
+DROP TABLE dbo.AdditionalDetails;
+DROP TABLE dbo.BaseMetal;
+DROP TABLE dbo.Filler;
+DROP TABLE dbo.FillerMetal;
+DROP TABLE dbo.Position;
+DROP TABLE dbo.PreheatAndPostWeld;
+DROP TABLE dbo.WeldingProcess;
+DROP TABLE dbo.WeldingSpecifications;

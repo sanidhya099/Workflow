@@ -1,0 +1,78 @@
+﻿@using TinaKingSystem.ViewModels
+
+<MudCard Style="width:600px">
+    <MudForm Model="@packageView" @ref="@form">
+        <MudCardContent>
+            <table>
+                <tr>
+                    <td>
+                        <MudTextField @bind-Value="packageView.ClientName"
+                                      For="@(() => packageView.ClientName)"
+                                      Label="Client Name"
+                                      ReadOnly="true" />
+                    </td>
+                    <td width="30px" />
+                    <td>
+                        <MudTextField Label="Package Number"
+                                      @bind-Value="packageView.PackageNumber"
+                                      For="(() => packageView.PackageNumber)"
+                                      ReadOnly="true" />
+                    </td>
+                    <td width="30px" />
+                    <td>
+                        <MudTextField Label="Priority"
+                                      @bind-Value="packageView.Priority"
+                                      For="(() => packageView.Priority)"
+                                      ReadOnly="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height:20px"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h6>Issued for construction?</h6>
+                        <MudRadioGroup Value="drawingView.DetailInfo.isForContruction" ValueChanged="(int x) => {drawingView.DetailInfo.isForContruction=x; OnUpdate();}">
+                            <MudRadio Value="@(1)" Color="Color.Primary" Dense="true">Yes</MudRadio>
+                            <MudRadio Value="@(0)" Color="Color.Warning" Dense="false">No</MudRadio>
+                        </MudRadioGroup>
+                        <h6>Weld map complete?</h6>
+                        <MudRadioGroup Value="drawingView.DetailInfo.isWeldComplete" ValueChanged="(int x) => {drawingView.DetailInfo.isWeldComplete=x; OnUpdate();}">
+                            <MudRadio Value="@(1)" Color="Color.Primary" Dense="true">Yes</MudRadio>
+                            <MudRadio Value="@(0)" Color="Color.Warning" Dense="false">No</MudRadio>
+                        </MudRadioGroup>
+                        <h6>Thickness range qualified acceptable?</h6>
+                        <MudRadioGroup Value="drawingView.DetailInfo.ThickQualifyAcceptable" ValueChanged="(int x) => {drawingView.DetailInfo.ThickQualifyAcceptable=x; OnUpdate();}">
+                            <MudRadio Value="@(1)" Color="Color.Primary" Dense="true">Yes</MudRadio>
+                            <MudRadio Value="@(0)" Color="Color.Warning" Dense="false">No</MudRadio>
+                        </MudRadioGroup>
+                        <h6>Correct WPS?</h6>
+                        <MudRadioGroup Value="drawingView.DetailInfo.CorrectWPS" ValueChanged="(int x) => {drawingView.DetailInfo.CorrectWPS=x; OnUpdate();}">
+                            <MudRadio Value="@(1)" Color="Color.Primary" Dense="true">Yes</MudRadio>
+                            <MudRadio Value="@(0)" Color="Color.Warning" Dense="false">No</MudRadio>
+                        </MudRadioGroup>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                    <div class="summary-section">
+                        <h3>Summary of Flagged Items</h3>
+                        @if (SummeryList.Count > 0) {
+                            <ul>
+                                @foreach (var item in SummeryList) {
+                                    <li>@item</li>
+                                }
+                            </ul>
+                        } else {
+                            <p>No issues flagged.</p>
+                        }
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </MudCardContent>
+    </MudForm>
+    <MudCardActions>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Confirm(true))">OK</MudButton>
+    </MudCardActions>
+</MudCard>

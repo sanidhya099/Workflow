@@ -1,0 +1,17 @@
+INSERT INTO [WFS_2590].[dbo].[Employee] (
+    [FirstName], [LastName], [Username], [Status], [Address1], [Address2], [Role], [Email], [Phone], [City], [Province], [PostalCode], [PwdToken], [DateNotify], [Notified]
+) VALUES
+    ('Kingsley', 'Emeronye', 'KingE', 'active', '1010 Centre St NE', NULL, 'Admin', 'kemeronye@gmail.com', '4035551001', 'Edmonton', 'Alberta', 'T2E 2R2', NULL, NULL, NULL),
+    ('Arshnoor', 'Singh', 'singha', 'active', '1010 Centre St NE', NULL, 'Admin', 'asingh280@nait.ca', '8253436687', 'Edmonton', 'Alberta', 'T2E 2R2', NULL, NULL, NULL),
+    ('Sanidhya', 'Sharma', 'sharmas', 'active', '1010 Centre St NE', NULL, 'Manager', 'ssharma271@nait.ca', '4035551001', 'Edmonton', 'Alberta', 'T2E 2R2', NULL, NULL, NULL),
+    ('Ethan', 'Sharma', 'ethanhunt', 'active', '1010 Centre St NE', NULL, 'Reviewer', 'ethan@example.com', '4035551001', 'Edmonton', 'Alberta', 'T2E 2R2', NULL, NULL, NULL),
+    ('Alice', 'Brown', 'aliceb', 'active', '1010 Centre St NE', NULL, 'Admin', 'aliceb@example.com', '4035551001', 'Calgary', 'Alberta', 'T2E 2R2', NULL, NULL, NULL), 
+    ('Anthony', 'Davis', 'anthonyd', 'active', '2020 8 Ave SW', NULL, 'Admin', 'anthonyd@example.com', '4035551002', 'Calgary', 'Alberta', 'T2P 1G3', NULL, NULL, NULL), 
+    ('Bethany', 'Evans', 'bethanye', 'active', '3030 17 Ave SE', NULL, 'Manager', 'bethanye@example.com', '4035552001', 'Calgary', 'Alberta', 'T2A 0P9', NULL, NULL, NULL), 
+    ('Charles', 'Foster', 'charlesf', 'active', '4040 Macleod Trail', NULL, 'Manager', 'charlesf@example.com', '4035552002', 'Calgary', 'Alberta', 'T2G 2R7', NULL, NULL, NULL), 
+    ('Diana', 'Green', 'dianag', 'active', '5050 12 Ave SE', NULL, 'Manager', 'dianag@example.com', '4035552003', 'Calgary', 'Alberta', 'T2A 4L5', NULL, NULL, NULL), 
+    ('Edward', 'Harris', 'edwardh', 'active', '6060 16 Ave NW', NULL, 'Manager', 'edwardh@example.com', '4035552004', 'Calgary', 'Alberta', 'T3B 0N2', NULL, NULL, NULL), 
+    ('Fiona', 'Iverson', 'fionai', 'active', '7070 36 St NE', NULL, 'Reviewer', 'fionai@example.com', '4035553001', 'Calgary', 'Alberta', 'T3J 5C8', NULL, NULL, NULL), 
+    ('Gregory', 'Johnson', 'gregoryj', 'active', '8080 52 St SE', NULL, 'Reviewer', 'gregoryj@example.com', '4035553002', 'Calgary', 'Alberta', 'T2C 4X7', NULL, NULL, NULL),
+    ('Hannah', 'Klein', 'hannahk', 'active', '9090 Memorial Dr', NULL, 'Reviewer', 'hannahk@example.com', '4035553003', 'Calgary', 'Alberta', 'T2A 6R1', NULL, NULL, NULL)
+

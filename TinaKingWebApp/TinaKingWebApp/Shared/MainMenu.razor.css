@@ -1,0 +1,8 @@
+﻿.mud-nav-link:hover {
+    color:#808080; /* Replace #yourHoverColor with the color you want */
+}
+.mud-nav-link.mud-ripple.mud-ripple-active,
+.mud-nav-link.mud-ripple.mud-ripple-unbounded.mud-ripple-active {
+    color: Red; /* Replace #yourActiveColor with the color you want */
+    background-color: white !important; /* Optional: change the background color */
+}

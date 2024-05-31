@@ -1,0 +1,75 @@
+﻿@using TinaKingSystem.ViewModels
+
+<MudCard Style="width:1200px">
+    <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+    </MudContainer>
+    <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+        @if (PackageList != null && PackageList.Any()) {
+            <div style="overflow-x: auto; margin-inline:-22px;">
+
+                <MudTable Items="@filteredPackages" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped">    
+                    <HeaderContent>
+                        <MudTh>Date Completed</MudTh>
+                        <MudTh>Client</MudTh>
+                        <MudTh>Package Number</MudTh>
+                        <MudTh>Time Spent(Hrs)</MudTh>
+                        <MudTh>Rate</MudTh>
+                        <MudTh>Total</MudTh>
+                         <MudTh>GST</MudTh>
+                        <MudTh>Sub-Total</MudTh>
+                        <MudTh></MudTh>
+                    </HeaderContent>
+
+                    <RowTemplate Context="package">
+                        @if (package.EndDate.Year < 2000)
+                        {
+                            <MudTd DataLabel="Date Submitted">-</MudTd>
+                        }
+                        else
+                        {
+                            <MudTd DataLabel="Date Submitted">@package.EndDate.ToString("dd MMM ")</MudTd>
+                        }
+                        <MudTd DataLabel="Client">@package.ClientName</MudTd>
+                        <MudTd DataLabel="Package Number">@package.PackageNumber</MudTd>
+                        <MudTd DataLabel="TimeSpents">@package.SpendTime</MudTd>
+                        <MudTd DataLabel="Rate">$@package.Rate.ToString("0.00")</MudTd>
+                        <MudTd DataLabel="Total">$@(package.Rate * package.SpendTime)</MudTd>
+                        <MudTd DataLabel="GST">$@(((package.Rate * package.SpendTime) * 0.05).ToString("0.00"))</MudTd>
+                        <MudTd DataLabel="Subtotal">$@(((package.Rate * package.SpendTime) * 1.05).ToString("0.00"))</MudTd>
+
+                        <MudTd DataLabel="Actions">
+                        @if (package.Selected == true) {
+                            <MudFab Color="Color.Success" Size="Size.Small" StartIcon="@Icons.Material.Filled.Check" @onclick="@(() => OnCheckChanged(package, false))" class="mr-2" />
+                        }else{
+                                <MudFab Color="Color.Dark" Size="Size.Small" StartIcon="@Icons.Material.Filled.Clear" @onclick="@(() => OnCheckChanged(package, true))" class="mr-2" />
+                        }
+                        </MudTd>
+                    </RowTemplate>
+                    <FooterContent>
+                        <MudTd colspan="11">
+                            <table width="100%">
+                                <tr>
+                                    <td Style="text-align:right"> Total   :$@(Total)</td>
+                                </tr>
+                                <tr>
+                                    <td Style="text-align:right">GST    : $@(GST.ToString("0.00"))</td>
+                                </tr>
+                                <tr>
+                                    <td Style="text-align:right">Grand Total    :$@((Total + GST).ToString("0.00"))</td>
+                                </tr>
+                            </table>
+                        </MudTd>
+                    </FooterContent>
+                </MudTable>
+                   
+            </div>
+        }
+        else
+        {
+            <p>Loading....</p>
+        }
+    </MudContainer>
+    <MudCardActions>
+        <MudButton Variant="MudBlazor.Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Confirm(true))">Approve</MudButton>
+    </MudCardActions>
+</MudCard>

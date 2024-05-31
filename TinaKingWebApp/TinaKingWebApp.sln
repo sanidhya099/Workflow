@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinaKingWebApp", "TinaKingWebApp\TinaKingWebApp.csproj", "{F57737BC-E658-407B-BF4C-711FC2EF9AC7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{851E436E-946A-4558-A500-E01A13AE7D2B} = {851E436E-946A-4558-A500-E01A13AE7D2B}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinaKingSystem", "TinaKingWebAppSystem\TinaKingSystem.csproj", "{4D50F3EE-236D-4284-83CE-6BA7F6FBF6DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2AA0BA38-FA97-447F-BF6C-3EF7A70F8C12}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "EmailService\EmailService.csproj", "{851E436E-946A-4558-A500-E01A13AE7D2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F57737BC-E658-407B-BF4C-711FC2EF9AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F57737BC-E658-407B-BF4C-711FC2EF9AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F57737BC-E658-407B-BF4C-711FC2EF9AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F57737BC-E658-407B-BF4C-711FC2EF9AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D50F3EE-236D-4284-83CE-6BA7F6FBF6DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D50F3EE-236D-4284-83CE-6BA7F6FBF6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D50F3EE-236D-4284-83CE-6BA7F6FBF6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D50F3EE-236D-4284-83CE-6BA7F6FBF6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851E436E-946A-4558-A500-E01A13AE7D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851E436E-946A-4558-A500-E01A13AE7D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851E436E-946A-4558-A500-E01A13AE7D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851E436E-946A-4558-A500-E01A13AE7D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D706AC03-6063-4CBA-A60D-1113BCCCDCF9}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+﻿label {
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin-top: 10px;
+}
+
+
+.container {
+    width: 70%;
+    max-width: 900px;
+    margin-top: 30px;
+}
+
+row {
+    margin-down: 10px;
+}
+
+a {
+    color: #0e77e2;
+}
+
+.edit-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
